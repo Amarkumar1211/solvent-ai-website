@@ -4,7 +4,8 @@
   "description": "Official website for SOLVENT Interactive Systems — AI Automation, Integrations, and Chatbots Consultancy.",
   "main": "index.js",
   "scripts": {
-    "start": "live-server --port=5500 --open=./index.html",
+    "start": "node server.js",
+    "dev": "live-server --port=5500 --open=./index.html",
     "build": "echo 'Static site build complete.'",
     "deploy": "npm run build && echo 'Ready for deployment to GitHub Pages or Netlify.'"
   },
@@ -19,7 +20,12 @@
   ],
   "author": "SOLVENT Interactive Systems",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.3"
+  },
   "devDependencies": {
     "live-server": "^1.2.2"
   },

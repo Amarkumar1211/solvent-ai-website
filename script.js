@@ -88,19 +88,54 @@ if (waOpen) waOpen.addEventListener('click', () => {
   window.open('https://wa.me/919810961797', '_blank');
 });
 
-// Simple form handling for all forms (demo only)
-document.addEventListener('submit', (ev) => {
+// Form handling with database storage
+document.addEventListener('submit', async (ev) => {
   const form = ev.target;
   if (form.tagName !== 'FORM') return;
   ev.preventDefault();
-  const status = form.querySelector('#formStatus') || form.querySelector('#inquiryStatus') || form.querySelector('#newsletter-status');
-  if (status) { status.textContent = '✅ Message sent. We will contact you shortly.'; }
-  // small success visual
-  const btn = form.querySelector('button[type="submit"]');
-  if (btn) { btn.disabled = true; btn.style.opacity = '0.8'; setTimeout(()=>{ btn.disabled=false; btn.style.opacity='1'; }, 1800); }
-  form.reset();
-  // if popup open, close after short delay
-  if (form.closest && form.closest('.inquiry-popup')) setTimeout(closeInquiryPopup, 900);
+
+  const formData = {
+    name: form.querySelector('[name="name"]')?.value || '',
+    email: form.querySelector('[name="email"]')?.value || '',
+    phone: form.querySelector('[name="phone"]')?.value || '',
+    message: form.querySelector('[name="message"]')?.value || '',
+    source: form.classList.contains('footer-form') ? 'footer' : 'contact'
+  };
+
+  try {
+    const response = await fetch('http://localhost:3000/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    });
+
+    if (response.ok) {
+      const status = form.querySelector('#formStatus') || form.querySelector('#inquiryStatus') || form.querySelector('#newsletter-status');
+      if (status) { 
+        status.textContent = '✅ Message sent. We will contact you shortly.'; 
+      }
+      // small success visual
+      const btn = form.querySelector('button[type="submit"]');
+      if (btn) { 
+        btn.disabled = true; 
+        btn.style.opacity = '0.8'; 
+        setTimeout(()=>{ btn.disabled=false; btn.style.opacity='1'; }, 1800); 
+      }
+      form.reset();
+      // if popup open, close after short delay
+      if (form.closest && form.closest('.inquiry-popup')) setTimeout(closeInquiryPopup, 900);
+    } else {
+      throw new Error('Failed to submit form');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    const status = form.querySelector('#formStatus') || form.querySelector('#inquiryStatus') || form.querySelector('#newsletter-status');
+    if (status) { 
+      status.textContent = '❌ Error submitting form. Please try again.'; 
+    }
+  }
 });
 
 // Close popup with Escape key
