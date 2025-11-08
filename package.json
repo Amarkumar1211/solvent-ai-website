@@ -1,0 +1,29 @@
+{
+  "name": "solvent-interactive-website",
+  "version": "1.0.0",
+  "description": "Official website for SOLVENT Interactive Systems — AI Automation, Integrations, and Chatbots Consultancy.",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server --port=5500 --open=./index.html",
+    "build": "echo 'Static site build complete.'",
+    "deploy": "npm run build && echo 'Ready for deployment to GitHub Pages or Netlify.'"
+  },
+  "keywords": [
+    "AI",
+    "Automation",
+    "Chatbots",
+    "Integrations",
+    "Consulting",
+    "Solvent Interactive Systems",
+    "Web"
+  ],
+  "author": "SOLVENT Interactive Systems",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

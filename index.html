@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SOLVENT Interactive Systems — AI Automation & Chatbots</title>
+
+  <!-- SEO -->
+  <meta name="description" content="SOLVENT Interactive Systems helps enterprises transform operations through AI automation, workflow integration, and intelligent chatbots." />
+  <meta name="keywords" content="AI automation, chatbot development, workflow automation, integration, enterprise AI, SOLVENT" />
+  <meta name="author" content="SOLVENT Interactive Systems" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SOLVENT Interactive Systems — AI Automation & Chatbots" />
+  <meta property="og:description" content="Empowering businesses through AI automation, intelligent integrations, and conversational agents." />
+  <meta property="og:image" content="https://your-domain.com/assets/og-image.jpg" />
+  <meta property="og:url" content="https://solventinteractive.com/" />
+  <meta property="og:site_name" content="SOLVENT Interactive Systems" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SOLVENT Interactive Systems — AI Automation & Chatbots" />
+  <meta name="twitter:description" content="AI automation, chatbots and integrations for enterprises." />
+  <meta name="twitter:image" content="https://your-domain.com/assets/og-image.jpg" />
+
+  <!-- Favicon & manifest -->
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Fonts & Lottie -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+  
+</head>
+<body>
+  <!-- Particle background -->
+  <div class="bg-gradient" aria-hidden="true">
+    <canvas id="particle-canvas"></canvas>
+    <div class="floating-shapes" aria-hidden="true"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+  <div class="header-inner">
+    <div class="header-logo">
+      <a href="index.html">
+        <img src="assets/logo.png" alt="Solvent Interactive Systems" class="nav-logo" />
+      </a>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="#" class="btn-ghost">Book Demo</a>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<!-- ANIMATED BACKGROUND -->
+<div class="animated-bg">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+  <canvas id="particleCanvas"></canvas>
+</div>
+
+
+<main>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container hero-content fade-in">
+      <div class="hero-text">
+        <h1>Revolutionize Your Business with <span>AI Automation</span></h1>
+        <p class="lead">
+          At <b>Solvent Interactive Systems</b>, we help you automate repetitive tasks, 
+          connect platforms seamlessly, and deploy intelligent chatbots — all powered by AI.
+        </p>
+        <div class="hero-buttons">
+          <a href="contact.html" class="btn btn-primary">Get Started</a>
+          <a href="services.html" class="btn btn-outline">Explore Services</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="assets/ai-automation-illustration.png" alt="AI Automation Illustration" />
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES HIGHLIGHT -->
+  <section class="features">
+    <div class="container fade-in">
+      <h2 class="section-title">Our Expertise</h2>
+      <p class="section-subtitle">End-to-End AI Solutions for Modern Businesses</p>
+      <div class="grid">
+        <div class="feature">
+          <img src="assets/icons/automation.png" alt="Automation" />
+          <h3>Automation Workflows</h3>
+          <p>Streamline operations and save time using no-code & custom AI-driven workflows.</p>
+        </div>
+        <div class="feature">
+          <img src="assets/iconsintegration.png" alt="Integrations" />
+          <h3>Platform Integrations</h3>
+          <p>Connect your CRMs, ERPs, and marketing tools to work as one powerful ecosystem.</p>
+        </div>
+        <div class="feature">
+          <img src="assets/chatbot.png" alt="Chatbot" />
+          <h3>AI Chatbots</h3>
+          <p>Deploy conversational assistants that provide instant, human-like support 24/7.</p>
+        </div>
+        <div class="feature">
+          <img src="assets/consulting.png" alt="Consulting" />
+          <h3>AI Consulting</h3>
+          <p>Get tailored AI strategies from experts to accelerate business intelligence adoption.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section class="process">
+    <div class="container fade-in">
+      <h2 class="section-title">How We Work</h2>
+      <div class="grid process-grid">
+        <div class="process-step">
+          <span>01</span>
+          <h4>Discover</h4>
+          <p>We assess your current systems and identify opportunities for AI-driven automation.</p>
+        </div>
+        <div class="process-step">
+          <span>02</span>
+          <h4>Design</h4>
+          <p>We blueprint your automation and integrations for seamless AI transformation.</p>
+        </div>
+        <div class="process-step">
+          <span>03</span>
+          <h4>Deploy</h4>
+          <p>We implement and monitor AI tools ensuring reliable performance and scalability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta">
+    <div class="container fade-in">
+      <h2>Start Your AI Journey Today</h2>
+      <p>Talk to our experts and explore how automation can transform your business.</p>
+      <a href="contact.html" class="btn btn-primary">Book a Free Consultation</a>
+    </div>
+  </section>
+</main>
+
+
+  <!-- Footer -->
+  <footer class="site-footer">
+  <div class="container footer-inner">
+    <!-- Brand Column -->
+    <div class="footer-brand">
+      <img src="assets/logo.png" alt="Solvent Interactive Systems" class="footer-logo" />
+      <p class="footer-desc">
+        SOLVENT Interactive Systems — experts in AI Automation, Integrations, and Chatbots.
+        We help enterprises streamline operations and enhance customer engagement through intelligent automation.
+      </p>
+
+      <ul class="footer-contact">
+        <li> <p><strong>📍</strong> 91C, DG2, Vikas Puri, New Delhi-110018</p>
+</li>
+        <li>📧 <a href="mailto:info@solventinteractive.com">info@solventinteractive.com</a></li>
+        <li>📞 <a href="https://wa.me/919810961797" target="_blank">+91 98109 61797</a></li>
+      </ul>
+
+      <!-- Social Media Links -->
+      <div class="footer-social">
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Product / Support / Company / Newsletter sections remain same -->
+    <div class="footer-links">
+      <h4>// Product</h4>
+      <a href="#">What's New</a>
+      <a href="#">Features</a>
+      <a href="#">Roadmap</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>// Support</h4>
+      <a href="#">Help Center</a>
+      <a href="#">Documentation</a>
+      <a href="#">Enterprise</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>// Company</h4>
+      <a href="about.html">About</a>
+      <a href="#">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-news">
+      <h4>Stay in the loop</h4>
+      <p>Get product updates and invites to demos.</p>
+      <form id="newsletterForm">
+        <input type="email" placeholder="your@email.com" required />
+        <button type="submit">Join</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 SOLVENT Interactive Systems. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
