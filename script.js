@@ -98,28 +98,39 @@ document.addEventListener('submit', async (ev) => {
   const statusEl = form.querySelector('#formStatus') || form.querySelector('#inquiryStatus') || form.querySelector('#newsletter-status');
   const submitBtn = form.querySelector('button[type="submit"]');
 
-  // Reset previous status
+  // Reset previous status and errors
   if (statusEl) {
     statusEl.textContent = '';
     statusEl.className = 'form-status';
+    statusEl.classList.remove('show');
   }
+
+  // Remove previous error states
+  form.querySelectorAll('.input-group.error').forEach(group => {
+    group.classList.remove('error');
+    const errorMsg = group.querySelector('.error-message');
+    if (errorMsg) errorMsg.remove();
+  });
 
   // Validate form
   const requiredFields = form.querySelectorAll('[required]');
   let isValid = true;
   requiredFields.forEach(field => {
+    const inputGroup = field.closest('.input-group');
     if (!field.value.trim()) {
       isValid = false;
-      field.classList.add('error');
-    } else {
-      field.classList.remove('error');
+      inputGroup.classList.add('error');
+      const errorMsg = document.createElement('span');
+      errorMsg.className = 'error-message';
+      errorMsg.textContent = `${field.getAttribute('placeholder') || 'This field'} is required`;
+      inputGroup.appendChild(errorMsg);
     }
   });
 
   if (!isValid) {
     if (statusEl) {
       statusEl.textContent = '❌ Please fill in all required fields.';
-      statusEl.classList.add('error');
+      statusEl.className = 'form-status error show';
     }
     return;
   }
@@ -127,18 +138,45 @@ document.addEventListener('submit', async (ev) => {
   // Email validation
   const emailField = form.querySelector('[type="email"]');
   if (emailField && !isValidEmail(emailField.value)) {
+    const inputGroup = emailField.closest('.input-group');
+    inputGroup.classList.add('error');
+    const errorMsg = document.createElement('span');
+    errorMsg.className = 'error-message';
+    errorMsg.textContent = 'Please enter a valid email address';
+    inputGroup.appendChild(errorMsg);
+    
     if (statusEl) {
       statusEl.textContent = '❌ Please enter a valid email address.';
-      statusEl.classList.add('error');
+      statusEl.className = 'form-status error show';
     }
-    emailField.classList.add('error');
+    return;
+  }
+
+  // Phone validation if provided
+  const phoneField = form.querySelector('[type="tel"]');
+  if (phoneField && phoneField.value.trim() && !isValidPhone(phoneField.value)) {
+    const inputGroup = phoneField.closest('.input-group');
+    inputGroup.classList.add('error');
+    const errorMsg = document.createElement('span');
+    errorMsg.className = 'error-message';
+    errorMsg.textContent = 'Please enter a valid phone number';
+    inputGroup.appendChild(errorMsg);
+    
+    if (statusEl) {
+      statusEl.textContent = '❌ Please enter a valid phone number.';
+      statusEl.className = 'form-status error show';
+    }
     return;
   }
 
   // Disable submit button and show loading
   if (submitBtn) {
     submitBtn.disabled = true;
+    const originalText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    
+    // Add loading animation
+    submitBtn.classList.add('loading');
   }
 
   // Prepare form data
@@ -149,7 +187,8 @@ document.addEventListener('submit', async (ev) => {
     company: form.querySelector('[name="company"]')?.value.trim() || '',
     topic: form.querySelector('[name="topic"]')?.value || '',
     message: form.querySelector('[name="message"]')?.value.trim() || '',
-    source: form.classList.contains('footer-form') ? 'footer' : 'contact'
+    source: form.classList.contains('footer-form') ? 'footer' : 'contact',
+    timestamp: new Date().toISOString()
   };
 
   try {
@@ -169,16 +208,26 @@ document.addEventListener('submit', async (ev) => {
     if (response.ok) {
       if (statusEl) {
         statusEl.textContent = '✅ Message sent successfully! We will contact you shortly.';
-        statusEl.classList.add('success');
+        statusEl.className = 'form-status success show';
       }
 
-      // Reset form
+      // Reset form and clear error states
       form.reset();
+      form.querySelectorAll('.input-group.error').forEach(group => {
+        group.classList.remove('error');
+        const errorMsg = group.querySelector('.error-message');
+        if (errorMsg) errorMsg.remove();
+      });
 
-      // Success visual feedback
+      // Success visual feedback with improved animation
       if (submitBtn) {
+        submitBtn.classList.remove('loading');
+        submitBtn.classList.add('success');
         submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent Successfully';
+        
+        // Reset button after animation
         setTimeout(() => {
+          submitBtn.classList.remove('success');
           submitBtn.disabled = false;
           submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
         }, 2000);
@@ -194,22 +243,30 @@ document.addEventListener('submit', async (ev) => {
   } catch (error) {
     console.error('Form submission error:', error);
     if (statusEl) {
-      statusEl.textContent = '❌ ' + (error.message || 'Error submitting form. Please try again.');
-      statusEl.classList.add('error');
+      statusEl.textContent = `❌ ${error.message || 'Error submitting form. Please try again.'}`;
+      statusEl.className = 'form-status error show';
     }
     
-    // Reset submit button
+    // Reset submit button while preserving error state
     if (submitBtn) {
       submitBtn.disabled = false;
+      submitBtn.classList.remove('loading');
       submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
     }
   }
 });
 
-// Email validation helper
+// Form validation helpers
 function isValidEmail(email) {
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  return emailRegex.test(email);
+  // RFC 5322 compliant email regex
+  const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return emailRegex.test(email.trim().toLowerCase());
+}
+
+function isValidPhone(phone) {
+  // Allow international format with country codes
+  const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+  return phoneRegex.test(phone.trim());
 }
 
 // Close popup with Escape key

@@ -23,8 +23,13 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
+    "exceljs": "^4.4.0",
     "express": "^5.1.0",
-    "mongoose": "^8.19.3"
+    "google-spreadsheet": "^5.0.2",
+    "googleapis": "^165.0.0",
+    "mongoose": "^8.19.3",
+    "node-fetch": "^3.3.2",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "live-server": "^1.2.2"

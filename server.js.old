@@ -40,63 +40,44 @@ const Contact = mongoose.model('Contact', contactSchema);
 const saveToExcel = async (contactData) => {
     try {
         const filePath = path.join(__dirname, 'contact_submissions.xlsx');
-        console.log('Excel file path:', filePath);
-
-        // Initialize workbook and data array
-        let workbook = XLSX.utils.book_new();
+        let workbook;
         let data = [];
 
-        // Try to read existing file if it exists
         if (fs.existsSync(filePath)) {
-            try {
-                workbook = XLSX.readFile(filePath);
-                if (workbook.SheetNames.length > 0) {
-                    const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-                    if (worksheet) {
-                        data = XLSX.utils.sheet_to_json(worksheet);
-                        console.log('Existing data loaded:', data.length, 'records');
-                    }
-                }
-            } catch (readError) {
-                console.warn('Could not read existing file, creating new one:', readError.message);
-            }
+            // Read existing file
+            workbook = XLSX.readFile(filePath);
+            const firstSheetName = workbook.SheetNames[0];
+            const worksheet = workbook.Sheets[firstSheetName];
+            data = XLSX.utils.sheet_to_json(worksheet);
+        } else {
+            // Create new workbook
+            workbook = XLSX.utils.book_new();
         }
 
         // Add new entry
-        const newEntry = {
+        data.push({
             Name: contactData.name || '',
             Email: contactData.email || '',
             Phone: contactData.phone || '',
             Message: contactData.message || '',
             Source: contactData.source || '',
             Timestamp: new Date().toLocaleString()
-        };
-        data.push(newEntry);
-        console.log('Added new entry:', newEntry);
+        });
 
-        // Create new worksheet with updated data
+        // Create new worksheet with all data
         const ws = XLSX.utils.json_to_sheet(data);
         
-        // Remove existing sheet if it exists
-        const sheetName = 'Contacts';
-        if (workbook.SheetNames.includes(sheetName)) {
-            // Remove existing sheet
-            const idx = workbook.SheetNames.indexOf(sheetName);
-            workbook.SheetNames.splice(idx, 1);
-            delete workbook.Sheets[sheetName];
-        }
-        
-        // Add the new worksheet
-        XLSX.utils.book_append_sheet(workbook, ws, sheetName);
+        // Add worksheet to workbook (overwrites if exists)
+        XLSX.utils.book_append_sheet(workbook, ws, 'Contacts', true);
         
         // Save the file
         XLSX.writeFile(workbook, filePath);
-        console.log('Excel file saved successfully with', data.length, 'total records');
-        return true;
+        console.log('Saved to Excel successfully');
     } catch (error) {
-        console.error('Error in saveToExcel:', error);
+        console.error('Error saving to Excel:', error);
         throw error;
     }
+};
 };
 
 // API endpoints
