@@ -192,8 +192,9 @@ document.addEventListener('submit', async (ev) => {
   };
 
   try {
-    // Use local API endpoint
-    const response = await fetch('/api/contact', {
+    // API endpoint (replace with your API server URL when deployed)
+    const apiUrl = 'https://solvent-api.onrender.com/api/contact';
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
