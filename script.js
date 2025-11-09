@@ -94,16 +94,71 @@ document.addEventListener('submit', async (ev) => {
   if (form.tagName !== 'FORM') return;
   ev.preventDefault();
 
+  // Get status element
+  const statusEl = form.querySelector('#formStatus') || form.querySelector('#inquiryStatus') || form.querySelector('#newsletter-status');
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  // Reset previous status
+  if (statusEl) {
+    statusEl.textContent = '';
+    statusEl.className = 'form-status';
+  }
+
+  // Validate form
+  const requiredFields = form.querySelectorAll('[required]');
+  let isValid = true;
+  requiredFields.forEach(field => {
+    if (!field.value.trim()) {
+      isValid = false;
+      field.classList.add('error');
+    } else {
+      field.classList.remove('error');
+    }
+  });
+
+  if (!isValid) {
+    if (statusEl) {
+      statusEl.textContent = '❌ Please fill in all required fields.';
+      statusEl.classList.add('error');
+    }
+    return;
+  }
+
+  // Email validation
+  const emailField = form.querySelector('[type="email"]');
+  if (emailField && !isValidEmail(emailField.value)) {
+    if (statusEl) {
+      statusEl.textContent = '❌ Please enter a valid email address.';
+      statusEl.classList.add('error');
+    }
+    emailField.classList.add('error');
+    return;
+  }
+
+  // Disable submit button and show loading
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+  }
+
+  // Prepare form data
   const formData = {
-    name: form.querySelector('[name="name"]')?.value || '',
-    email: form.querySelector('[name="email"]')?.value || '',
-    phone: form.querySelector('[name="phone"]')?.value || '',
-    message: form.querySelector('[name="message"]')?.value || '',
+    name: form.querySelector('[name="name"]')?.value.trim() || '',
+    email: form.querySelector('[name="email"]')?.value.trim() || '',
+    phone: form.querySelector('[name="phone"]')?.value.trim() || '',
+    company: form.querySelector('[name="company"]')?.value.trim() || '',
+    topic: form.querySelector('[name="topic"]')?.value || '',
+    message: form.querySelector('[name="message"]')?.value.trim() || '',
     source: form.classList.contains('footer-form') ? 'footer' : 'contact'
   };
 
   try {
-    const response = await fetch('http://localhost:3000/api/contact', {
+    // Determine API URL based on environment
+    const apiUrl = window.location.hostname === 'localhost' 
+      ? 'http://localhost:3000/api/contact'
+      : 'https://api.solventinteractive.com/api/contact';
+
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -111,32 +166,53 @@ document.addEventListener('submit', async (ev) => {
       body: JSON.stringify(formData)
     });
 
+    const data = await response.json();
+
     if (response.ok) {
-      const status = form.querySelector('#formStatus') || form.querySelector('#inquiryStatus') || form.querySelector('#newsletter-status');
-      if (status) { 
-        status.textContent = '✅ Message sent. We will contact you shortly.'; 
+      if (statusEl) {
+        statusEl.textContent = '✅ Message sent successfully! We will contact you shortly.';
+        statusEl.classList.add('success');
       }
-      // small success visual
-      const btn = form.querySelector('button[type="submit"]');
-      if (btn) { 
-        btn.disabled = true; 
-        btn.style.opacity = '0.8'; 
-        setTimeout(()=>{ btn.disabled=false; btn.style.opacity='1'; }, 1800); 
-      }
+
+      // Reset form
       form.reset();
-      // if popup open, close after short delay
-      if (form.closest && form.closest('.inquiry-popup')) setTimeout(closeInquiryPopup, 900);
+
+      // Success visual feedback
+      if (submitBtn) {
+        submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent Successfully';
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+        }, 2000);
+      }
+
+      // Close popup if open
+      if (form.closest('.inquiry-popup')) {
+        setTimeout(closeInquiryPopup, 1500);
+      }
     } else {
-      throw new Error('Failed to submit form');
+      throw new Error(data.message || 'Failed to submit form');
     }
   } catch (error) {
-    console.error('Error:', error);
-    const status = form.querySelector('#formStatus') || form.querySelector('#inquiryStatus') || form.querySelector('#newsletter-status');
-    if (status) { 
-      status.textContent = '❌ Error submitting form. Please try again.'; 
+    console.error('Form submission error:', error);
+    if (statusEl) {
+      statusEl.textContent = '❌ ' + (error.message || 'Error submitting form. Please try again.');
+      statusEl.classList.add('error');
+    }
+    
+    // Reset submit button
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
     }
   }
 });
+
+// Email validation helper
+function isValidEmail(email) {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailRegex.test(email);
+}
 
 // Close popup with Escape key
 document.addEventListener('keydown', (e) => {
