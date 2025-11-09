@@ -7,14 +7,16 @@ const path = require('path');
 require('dotenv').config();
 
 const app = express();
+const isProduction = process.env.NODE_ENV === 'production';
 
 // Middleware
 app.use(cors({
-  origin: '*',
+  origin: isProduction ? ['https://solventinteractive.com', 'https://www.solventinteractive.com'] : '*',
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type']
 }));
 app.use(express.json());
+app.use(express.static(__dirname)); // Serve static files
 
 // MongoDB connection
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/solvent-ai-db')

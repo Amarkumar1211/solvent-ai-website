@@ -193,7 +193,9 @@ document.addEventListener('submit', async (ev) => {
 
   try {
     // Determine API URL based on environment
-    const apiUrl = 'https://solvent-api.onrender.com/api/contact';
+    const apiUrl = window.location.hostname === 'localhost' 
+      ? 'http://localhost:3000/api/contact'
+      : '/api/contact';
 
     const response = await fetch(apiUrl, {
       method: 'POST',
