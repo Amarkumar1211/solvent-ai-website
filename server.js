@@ -7,21 +7,48 @@ const path = require('path');
 require('dotenv').config();
 
 const app = express();
-const isProduction = process.env.NODE_ENV === 'production';
 
 // Middleware
-app.use(cors({
-  origin: isProduction ? ['https://solventinteractive.com', 'https://www.solventinteractive.com'] : '*',
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type']
-}));
+app.use(cors());
 app.use(express.json());
-app.use(express.static(__dirname)); // Serve static files
 
-// MongoDB connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/solvent-ai-db')
-  .then(() => console.log('Connected to MongoDB successfully'))
-  .catch(err => console.error('MongoDB connection error:', err));
+// Serve static files
+app.use(express.static(__dirname));
+
+// Serve HTML files
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.get('/about', (req, res) => {
+    res.sendFile(path.join(__dirname, 'about.html'));
+});
+
+app.get('/services', (req, res) => {
+    res.sendFile(path.join(__dirname, 'services.html'));
+});
+
+app.get('/contact', (req, res) => {
+    res.sendFile(path.join(__dirname, 'contact.html'));
+});
+
+// MongoDB connection with retry logic
+const connectMongoDB = async (retries = 5) => {
+    try {
+        await mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/solvent-ai-db');
+        console.log('Connected to MongoDB successfully');
+    } catch (err) {
+        console.error('MongoDB connection error:', err);
+        if (retries > 0) {
+            console.log(`Retrying connection... (${retries} attempts remaining)`);
+            await new Promise(resolve => setTimeout(resolve, 5000)); // Wait 5 seconds
+            return connectMongoDB(retries - 1);
+        }
+        console.error('Failed to connect to MongoDB after multiple attempts');
+    }
+};
+
+connectMongoDB();
 
 // Contact schema
 const contactSchema = new mongoose.Schema({
