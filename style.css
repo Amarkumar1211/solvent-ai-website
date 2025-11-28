@@ -634,9 +634,19 @@ body.inquiry-open .chat-bubble{bottom:160px}
   box-shadow: 0 0 30px rgba(0,240,255,0.15);
 }
 .feature img {
-  width: 64px;
+  /* Force feature images to a consistent square size while keeping icons centered
+     Use object-fit: contain so icons are not cropped; background can show through
+     for transparent icons. */
+  width: 96px;
+  height: 96px;
+  display: inline-block;
   margin-bottom: 14px;
-  filter: brightness(1.2);
+  object-fit: contain;
+  object-position: center;
+  filter: brightness(1.1);
+  border-radius: 12px; /* keeps small rounded corners for decorative icons */
+  background: rgba(255,255,255,0.02); /* subtle panel behind icons to make sizes consistent */
+  padding: 10px; /* add inner spacing so icon doesn't touch edges */
 }
 
 /* ===== PROCESS ===== */
