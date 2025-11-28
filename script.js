@@ -111,6 +111,9 @@ document.addEventListener('submit', async (ev) => {
     const errorMsg = group.querySelector('.error-message');
     if (errorMsg) errorMsg.remove();
   });
+  // Also remove any standalone error messages or input-level error classes
+  form.querySelectorAll('.error-message').forEach(em => em.remove());
+  form.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
 
   // Validate form
   const requiredFields = form.querySelectorAll('[required]');
@@ -119,11 +122,17 @@ document.addEventListener('submit', async (ev) => {
     const inputGroup = field.closest('.input-group');
     if (!field.value.trim()) {
       isValid = false;
-      inputGroup.classList.add('error');
       const errorMsg = document.createElement('span');
       errorMsg.className = 'error-message';
       errorMsg.textContent = `${field.getAttribute('placeholder') || 'This field'} is required`;
-      inputGroup.appendChild(errorMsg);
+      if (inputGroup) {
+        inputGroup.classList.add('error');
+        inputGroup.appendChild(errorMsg);
+      } else {
+        // Fallback for forms that don't use .input-group wrappers
+        field.classList.add('error');
+        field.insertAdjacentElement('afterend', errorMsg);
+      }
     }
   });
 
@@ -139,11 +148,16 @@ document.addEventListener('submit', async (ev) => {
   const emailField = form.querySelector('[type="email"]');
   if (emailField && !isValidEmail(emailField.value)) {
     const inputGroup = emailField.closest('.input-group');
-    inputGroup.classList.add('error');
     const errorMsg = document.createElement('span');
     errorMsg.className = 'error-message';
     errorMsg.textContent = 'Please enter a valid email address';
-    inputGroup.appendChild(errorMsg);
+    if (inputGroup) {
+      inputGroup.classList.add('error');
+      inputGroup.appendChild(errorMsg);
+    } else {
+      emailField.classList.add('error');
+      emailField.insertAdjacentElement('afterend', errorMsg);
+    }
     
     if (statusEl) {
       statusEl.textContent = '❌ Please enter a valid email address.';
@@ -156,11 +170,16 @@ document.addEventListener('submit', async (ev) => {
   const phoneField = form.querySelector('[type="tel"]');
   if (phoneField && phoneField.value.trim() && !isValidPhone(phoneField.value)) {
     const inputGroup = phoneField.closest('.input-group');
-    inputGroup.classList.add('error');
     const errorMsg = document.createElement('span');
     errorMsg.className = 'error-message';
     errorMsg.textContent = 'Please enter a valid phone number';
-    inputGroup.appendChild(errorMsg);
+    if (inputGroup) {
+      inputGroup.classList.add('error');
+      inputGroup.appendChild(errorMsg);
+    } else {
+      phoneField.classList.add('error');
+      phoneField.insertAdjacentElement('afterend', errorMsg);
+    }
     
     if (statusEl) {
       statusEl.textContent = '❌ Please enter a valid phone number.';
