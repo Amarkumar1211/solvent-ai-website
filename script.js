@@ -211,17 +211,58 @@ document.addEventListener('submit', async (ev) => {
   };
 
   try {
-    // API endpoint (replace with your API server URL when deployed)
-    const apiUrl = 'https://solvent-api.onrender.com/api/contact';
-    const response = await fetch(apiUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData)
-    });
+    // Try relative API first (works when backend is reverse-proxied to same domain),
+    // then fall back to an external API URL if provided.
+    const relativeApi = '/api/contact';
+    const externalApi = window.SOLVENT_API_URL || 'https://solvent-api.onrender.com/api/contact';
 
-    const data = await response.json();
+    // Helper: fetch with timeout
+    const fetchWithTimeout = (url, opts = {}, timeout = 8000) => {
+      const controller = new AbortController();
+      const id = setTimeout(() => controller.abort(), timeout);
+      return fetch(url, { ...opts, signal: controller.signal })
+        .finally(() => clearTimeout(id));
+    };
+
+    let response;
+    let lastError = null;
+
+    // Try relative endpoint first
+    try {
+      response = await fetchWithTimeout(relativeApi, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      }, 6000);
+      // If we get a network-level failure this will throw; if we get a CORS/HTTP error we'll handle below
+    } catch (err) {
+      lastError = err;
+      // Try external API as fallback
+      try {
+        if (statusEl) {
+          statusEl.textContent = '⏳ Unable to reach local API, trying external API...';
+          statusEl.className = 'form-status muted show';
+        }
+        response = await fetchWithTimeout(externalApi, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        }, 8000);
+      } catch (err2) {
+        lastError = err2;
+        // rethrow below so catch block handles it
+      }
+    }
+
+    let data = {};
+    if (response) {
+      try {
+        data = await response.json();
+      } catch (parseErr) {
+        // Response not JSON — ignore parse error, we'll use status
+        data = {};
+      }
+    }
 
     if (response.ok) {
       if (statusEl) {
