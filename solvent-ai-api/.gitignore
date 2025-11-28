@@ -1,0 +1,7 @@
+node_modules/
+.env
+contact_submissions.xlsx
+npm-debug.log
+logs/
+dist/
+coverage/
