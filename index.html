@@ -1,19 +1,23 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>SOLVENT Interactive Systems — AI Automation & Chatbots</title>
 
   <!-- SEO -->
-  <meta name="description" content="SOLVENT Interactive Systems helps enterprises transform operations through AI automation, workflow integration, and intelligent chatbots." />
-  <meta name="keywords" content="AI automation, chatbot development, workflow automation, integration, enterprise AI, SOLVENT" />
+  <meta name="description"
+    content="SOLVENT Interactive Systems helps enterprises transform operations through AI automation, workflow integration, and intelligent chatbots." />
+  <meta name="keywords"
+    content="AI automation, chatbot development, workflow automation, integration, enterprise AI, SOLVENT" />
   <meta name="author" content="SOLVENT Interactive Systems" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="SOLVENT Interactive Systems — AI Automation & Chatbots" />
-  <meta property="og:description" content="Empowering businesses through AI automation, intelligent integrations, and conversational agents." />
+  <meta property="og:description"
+    content="Empowering businesses through AI automation, intelligent integrations, and conversational agents." />
   <meta property="og:image" content="https://your-domain.com/assets/og-image.jpg" />
   <meta property="og:url" content="https://solventinteractive.com/" />
   <meta property="og:site_name" content="SOLVENT Interactive Systems" />
@@ -34,13 +38,12 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="chatbot-custom.css" />
 
-  
+
 </head>
+
 <body>
   <!-- Particle background -->
   <div class="bg-gradient" aria-hidden="true">
@@ -50,201 +53,463 @@
 
   <!-- Header -->
   <header class="site-header">
-  <div class="header-inner">
-    <div class="header-logo">
-      <a href="index.html">
-        <img src="assets/logo.png" alt="Solvent Interactive Systems" class="nav-logo" />
-      </a>
+    <div class="header-inner">
+      <div class="header-logo">
+        <a href="index.html">
+          <img src="assets/logo.png" alt="Solvent Interactive Systems" class="nav-logo" />
+        </a>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="contact.html" class="btn-ghost">Book Demo</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-
-    <nav class="nav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="services.html" class="nav-link">Services</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-      <a href="contact.html" class="btn-ghost">Book Demo</a>
-    </nav>
-
-    <button class="menu-toggle" id="menuToggle">
-      <span></span><span></span><span></span>
-    </button>
+  </header>
+  <!-- ANIMATED BACKGROUND -->
+  <div class="animated-bg">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+    <canvas id="particleCanvas"></canvas>
   </div>
-</header>
-<!-- ANIMATED BACKGROUND -->
-<div class="animated-bg">
-  <div class="blob blob1"></div>
-  <div class="blob blob2"></div>
-  <div class="blob blob3"></div>
-  <canvas id="particleCanvas"></canvas>
-</div>
 
 
-<main>
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="container hero-content fade-in">
-      <div class="hero-text">
-        <h1>Revolutionize Your Business with <span>AI Automation</span></h1>
-        <p class="lead">
-          At <b>Solvent Interactive Systems</b>, we help you automate repetitive tasks, 
-          connect platforms seamlessly, and deploy intelligent chatbots — all powered by AI.
-        </p>
-        <div class="hero-buttons">
-          <a href="contact.html" class="btn btn-primary">Get Started</a>
-          <a href="services.html" class="btn btn-outline">Explore Services</a>
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container hero-content fade-in">
+        <div class="hero-text">
+          <h1>Revolutionize Your Business with <span>AI Automation</span></h1>
+          <p class="lead">
+            At <b>Solvent Interactive Systems</b>, we help you automate repetitive tasks,
+            connect platforms seamlessly, and deploy intelligent chatbots — all powered by AI.
+          </p>
+          <div class="hero-buttons">
+            <a href="contact.html" class="btn btn-primary">Get Started</a>
+            <a href="services.html" class="btn btn-outline">Explore Services</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="assets/ai-automation-illustration.png" alt="AI Automation Illustration" />
         </div>
       </div>
-      <div class="hero-image">
-        <img src="assets/ai-automation-illustration.png" alt="AI Automation Illustration" />
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SERVICES HIGHLIGHT -->
-  <section class="features">
-    <div class="container fade-in">
-      <h2 class="section-title">Our Expertise</h2>
-      <p class="section-subtitle">End-to-End AI Solutions for Modern Businesses</p>
-      <div class="grid">
-        <div class="feature">
-          <img src="assets/icons/automation.png" alt="Automation" />
-          <h3>Automation Workflows</h3>
-          <p>Streamline operations and save time using no-code & custom AI-driven workflows.</p>
-        </div>
-        <div class="feature">
-          <img src="assets/iconsintegration.png" alt="Integrations" />
-          <h3>Platform Integrations</h3>
-          <p>Connect your CRMs, ERPs, and marketing tools to work as one powerful ecosystem.</p>
-        </div>
-        <div class="feature">
-          <img src="assets/chatbot.png" alt="Chatbot" />
-          <h3>AI Chatbots</h3>
-          <p>Deploy conversational assistants that provide instant, human-like support 24/7.</p>
-        </div>
-        <div class="feature">
-          <img src="assets/consulting.png" alt="Consulting" />
-          <h3>AI Consulting</h3>
-          <p>Get tailored AI strategies from experts to accelerate business intelligence adoption.</p>
+    <!-- SERVICES HIGHLIGHT -->
+    <section class="features">
+      <div class="container fade-in">
+        <h2 class="section-title">Our Expertise</h2>
+        <p class="section-subtitle">End-to-End AI Solutions for Modern Businesses</p>
+        <div class="grid">
+          <div class="feature">
+            <img src="assets/icons/automation.png" alt="Automation" />
+            <h3>Automation Workflows</h3>
+            <p>Streamline operations and save time using no-code & custom AI-driven workflows.</p>
+          </div>
+          <div class="feature">
+            <img src="assets/iconsintegration.png" alt="Integrations" />
+            <h3>Platform Integrations</h3>
+            <p>Connect your CRMs, ERPs, and marketing tools to work as one powerful ecosystem.</p>
+          </div>
+          <div class="feature">
+            <img src="assets/chatbot.png" alt="Chatbot" />
+            <h3>AI Chatbots</h3>
+            <p>Deploy conversational assistants that provide instant, human-like support 24/7.</p>
+          </div>
+          <div class="feature">
+            <img src="assets/consulting.png" alt="Consulting" />
+            <h3>AI Consulting</h3>
+            <p>Get tailored AI strategies from experts to accelerate business intelligence adoption.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- HOW WE WORK -->
-  <section class="process">
-    <div class="container fade-in">
-      <h2 class="section-title">How We Work</h2>
-      <div class="grid process-grid">
-        <div class="process-step">
-          <span>01</span>
-          <h4>Discover</h4>
-          <p>We assess your current systems and identify opportunities for AI-driven automation.</p>
-        </div>
-        <div class="process-step">
-          <span>02</span>
-          <h4>Design</h4>
-          <p>We blueprint your automation and integrations for seamless AI transformation.</p>
-        </div>
-        <div class="process-step">
-          <span>03</span>
-          <h4>Deploy</h4>
-          <p>We implement and monitor AI tools ensuring reliable performance and scalability.</p>
+    <!-- HOW WE WORK -->
+    <section class="process">
+      <div class="container fade-in">
+        <h2 class="section-title">How We Work</h2>
+        <div class="grid process-grid">
+          <div class="process-step">
+            <span>01</span>
+            <h4>Discover</h4>
+            <p>We assess your current systems and identify opportunities for AI-driven automation.</p>
+          </div>
+          <div class="process-step">
+            <span>02</span>
+            <h4>Design</h4>
+            <p>We blueprint your automation and integrations for seamless AI transformation.</p>
+          </div>
+          <div class="process-step">
+            <span>03</span>
+            <h4>Deploy</h4>
+            <p>We implement and monitor AI tools ensuring reliable performance and scalability.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA SECTION -->
-  <section class="cta">
-    <div class="container fade-in">
-      <h2>Start Your AI Journey Today</h2>
-      <p>Talk to our experts and explore how automation can transform your business.</p>
-      <a href="contact.html" class="btn btn-primary">Book a Free Consultation</a>
-    </div>
-  </section>
-</main>
+    <!-- CTA SECTION -->
+    <section class="cta">
+      <div class="container fade-in">
+        <h2>Start Your AI Journey Today</h2>
+        <p>Talk to our experts and explore how automation can transform your business.</p>
+        <a href="contact.html" class="btn btn-primary">Book a Free Consultation</a>
+      </div>
+    </section>
+  </main>
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    createChat({
+      webhookUrl: 'https://wkkww.app.n8n.cloud/webhook/18ca7461-8e05-4603-9f42-dd4749f22e0e/chat',
+      // Purple theme configuration with logo
+      initialMessages: [
+        'Hello! 👋',
+        'How can we help you today?'
+      ],
+      i18n: {
+        en: {
+          title: 'SOLVENT',
+          subtitle: 'Interactive Systems',
+          footer: '',
+          getStarted: 'Start chatting',
+          inputPlaceholder: 'Type your message...',
+        },
+      },
+      // Custom purple theme
+      theme: {
+        '--chat--color-primary': '#8b5cf6',
+        '--chat--color-primary-shade-50': 'rgba(139, 92, 246, 0.1)',
+        '--chat--color-primary-shade-100': 'rgba(139, 92, 246, 0.2)',
+        '--chat--color-secondary': '#a78bfa',
+        '--chat--background': '#ffffff',
+        '--chat--color-white': '#1f2937',
+        '--chat--spacing': '8px',
+        '--chat--border-radius': '18px',
+        '--chat--font-family': 'Poppins, sans-serif',
+      },
+    });
+
+    // Additional custom styling and logo injection
+    setTimeout(() => {
+      const style = document.createElement('style');
+      style.textContent = `
+        /* Purple gradient button */
+        #n8n-chat {
+          --chat--button-size: 56px !important;
+        }
+        
+        /* Chat window sizing */
+        #n8n-chat [data-key="chat"] {
+          width: 360px !important;
+          height: 580px !important;
+          max-height: 75vh !important;
+        }
+        
+        /* Clean typography */
+        #n8n-chat {
+          font-size: 14px !important;
+        }
+        
+        /* Message styling */
+        #n8n-chat [data-key="message"] {
+          padding: 12px 16px !important;
+          margin: 8px 0 !important;
+          font-size: 0.9rem !important;
+        }
+        
+        /* Input styling */
+        #n8n-chat input,
+        #n8n-chat textarea {
+          padding: 12px 16px !important;
+          font-size: 0.9rem !important;
+          border-radius: 24px !important;
+        }
+        
+        /* Purple gradient header with logo space */
+        #n8n-chat [data-key="header"] {
+          background: linear-gradient(135deg, #8b5cf6, #a78bfa) !important;
+          padding: 12px 16px !important;
+          min-height: 80px !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: space-between !important;
+          border-bottom: none !important;
+        }
+
+        /* Input container styling adjustment for icons */
+        #n8n-chat [data-key="input-container"] {
+          display: flex !important;
+          align-items: center !important;
+          padding: 12px 14px !important;
+          gap: 8px !important;
+        }
+        
+        #n8n-chat [data-key="input-container"] textarea {
+          padding-right: 40px !important; /* Make space for mic icon if inside, or adjust width */
+        }
+
+        /* Custom input icons */
+        .chat-input-icon {
+          background: none;
+          border: none;
+          color: #a78bfa;
+          font-size: 1.2rem;
+          cursor: pointer;
+          padding: 8px;
+          border-radius: 50%;
+          transition: all 0.2s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .chat-input-icon:hover {
+          background: rgba(139, 92, 246, 0.1);
+          color: #8b5cf6;
+        }
+
+        .chat-input-icon.recording {
+          color: #ef4444;
+          animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.1); }
+          100% { transform: scale(1); }
+        }
+      `;
+      document.head.appendChild(style);
+
+      // Inject logo and icons into header after chat loads
+      setTimeout(() => {
+        const header = document.querySelector('#n8n-chat [data-key="header"]');
+        if (header && !header.querySelector('.custom-logo')) {
+          // Create logo element
+          const logo = document.createElement('img');
+          logo.src = 'assets/logo.png';
+          logo.className = 'custom-logo';
+          logo.style.cssText = 'width: 40px; height: 40px; margin-right: 12px; filter: brightness(0) invert(1);';
+
+          // Create icons container
+          const iconsContainer = document.createElement('div');
+          iconsContainer.className = 'header-icons';
+          iconsContainer.style.cssText = 'display: flex; gap: 12px; align-items: center;';
+
+          // Settings icon
+          const settingsIcon = document.createElement('button');
+          settingsIcon.innerHTML = '<i class="fas fa-cog"></i>';
+          settingsIcon.style.cssText = 'background: rgba(255,255,255,0.15); border: none; width: 36px; height: 36px; border-radius: 50%; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s;';
+          settingsIcon.onmouseover = () => settingsIcon.style.background = 'rgba(255,255,255,0.25)';
+          settingsIcon.onmouseout = () => settingsIcon.style.background = 'rgba(255,255,255,0.15)';
+
+          // Notification icon
+          const notifIcon = document.createElement('button');
+          notifIcon.innerHTML = '<i class="fas fa-bell"></i>';
+          notifIcon.style.cssText = 'background: rgba(255,255,255,0.15); border: none; width: 36px; height: 36px; border-radius: 50%; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s;';
+          notifIcon.onmouseover = () => notifIcon.style.background = 'rgba(255,255,255,0.25)';
+          notifIcon.onmouseout = () => notifIcon.style.background = 'rgba(255,255,255,0.15)';
+
+          iconsContainer.appendChild(settingsIcon);
+          iconsContainer.appendChild(notifIcon);
+
+          // Insert logo at the beginning
+          header.insertBefore(logo, header.firstChild);
+
+          // Find close button and insert icons before it
+          const closeBtn = header.querySelector('[data-key="close"]');
+          if (closeBtn) {
+            header.insertBefore(iconsContainer, closeBtn);
+          } else {
+            header.appendChild(iconsContainer);
+          }
+        }
+
+        // --- Inject Voice & Image Buttons into Input Area ---
+        const inputContainer = document.querySelector('#n8n-chat [data-key="input-container"]');
+        if (inputContainer && !inputContainer.querySelector('.voice-btn')) {
+
+          // 1. Image Upload Button (Clip)
+          const clipBtn = document.createElement('button');
+          clipBtn.className = 'chat-input-icon clip-btn';
+          clipBtn.innerHTML = '<i class="fas fa-paperclip"></i>';
+          clipBtn.title = 'Attach Image';
+          clipBtn.onclick = () => {
+            // Simulate file upload click (functionality would require backend support)
+            alert('Image upload feature coming soon!');
+          };
+
+          // 2. Voice Recognition Button (Mic)
+          const micBtn = document.createElement('button');
+          micBtn.className = 'chat-input-icon voice-btn';
+          micBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+          micBtn.title = 'Voice Input';
+
+          // Voice Recognition Logic
+          if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            const recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+
+            micBtn.onclick = () => {
+              if (micBtn.classList.contains('recording')) {
+                recognition.stop();
+              } else {
+                recognition.start();
+              }
+            };
+
+            recognition.onstart = () => {
+              micBtn.classList.add('recording');
+            };
+
+            recognition.onend = () => {
+              micBtn.classList.remove('recording');
+            };
+
+            recognition.onresult = (event) => {
+              const transcript = event.results[0][0].transcript;
+              const inputField = document.querySelector('#n8n-chat textarea') || document.querySelector('#n8n-chat input[type="text"]');
+              if (inputField) {
+                inputField.value += (inputField.value ? ' ' : '') + transcript;
+                // Trigger input event to notify frameworks (React/Vue used by n8n widget)
+                inputField.dispatchEvent(new Event('input', { bubbles: true }));
+              }
+            };
+
+            recognition.onerror = (event) => {
+              console.error('Speech recognition error', event.error);
+              micBtn.classList.remove('recording');
+            };
+
+          } else {
+            micBtn.style.display = 'none'; // Hide if not supported
+            console.warn('Speech Recognition API not supported in this browser.');
+          }
+
+          // Insert buttons: Attach before input, Mic after input (or both before/after)
+          inputContainer.insertBefore(clipBtn, inputContainer.firstChild); // Clip at start
+
+          const sendBtn = inputContainer.querySelector('button[data-key="send"]');
+          if (sendBtn) {
+            inputContainer.insertBefore(micBtn, sendBtn); // Mic before send button
+          } else {
+            inputContainer.appendChild(micBtn);
+          }
+        }
+      }, 1500);
+    }, 1000);
+  </script>
 
 
   <!-- Footer -->
   <footer class="site-footer">
-  <div class="container footer-inner">
-    <!-- Brand Column -->
-    <div class="footer-brand">
-      <img src="assets/logo.png" alt="Solvent Interactive Systems" class="footer-logo" />
-      <p class="footer-desc">
-        SOLVENT Interactive Systems — experts in AI Automation, Integrations, and Chatbots.
-        We help enterprises streamline operations and enhance customer engagement through intelligent automation.
-      </p>
+    <div class="container footer-inner">
+      <!-- Brand Column -->
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Solvent Interactive Systems" class="footer-logo" />
+        <p class="footer-desc">
+          SOLVENT Interactive Systems — experts in AI Automation, Integrations, and Chatbots.
+          We help enterprises streamline operations and enhance customer engagement through intelligent automation.
+        </p>
 
-      <ul class="footer-contact">
-        <li> <p><strong>📍</strong> 91C, DG2, Vikas Puri, New Delhi-110018</p>
-</li>
-        <li>📧 <a href="mailto:info@solventinteractive.com">info@solventinteractive.com</a></li>
-        <li>📞 <a href="https://wa.me/919810961797" target="_blank">+91 98109 61797</a></li>
-      </ul>
+        <ul class="footer-contact">
+          <li>
+            <p><strong>📍</strong> 91C, DG2, Vikas Puri, New Delhi-110018</p>
+          </li>
+          <li>📧 <a href="mailto:info@solventinteractive.com">info@solventinteractive.com</a></li>
+          <li>📞 <a href="https://wa.me/919810961797" target="_blank">+91 98109 61797</a></li>
+        </ul>
 
-      <!-- Social Media Links -->
-      <div class="footer-social">
-        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-          <i class="fab fa-x-twitter"></i>
-        </a>
-        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.linkedin.com/company/solvent-interactive-systems" target="_blank" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://youtube.com" target="_blank" aria-label="YouTube">
-          <i class="fab fa-youtube"></i>
-        </a>
+        <!-- Social Media Links -->
+        <div class="footer-social">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/solvent-interactive-systems" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Product / Support / Company / Newsletter sections remain same -->
+      <div class="footer-links">
+        <h4>// Product</h4>
+        <a href="#">What's New</a>
+        <a href="#">Features</a>
+        <a href="#">Roadmap</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>// Support</h4>
+        <a href="#">Help Center</a>
+        <a href="#">Documentation</a>
+        <a href="#">Enterprise</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>// Company</h4>
+        <a href="about.html">About</a>
+        <a href="#">Careers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="footer-news">
+        <h4>Stay in the loop</h4>
+        <p>Get product updates and invites to demos.</p>
+        <form id="newsletterForm">
+          <input type="email" placeholder="your@email.com" required />
+          <button type="submit">Join</button>
+        </form>
       </div>
     </div>
 
-    <!-- Product / Support / Company / Newsletter sections remain same -->
-    <div class="footer-links">
-      <h4>// Product</h4>
-      <a href="#">What's New</a>
-      <a href="#">Features</a>
-      <a href="#">Roadmap</a>
+    <div class="footer-bottom">
+      <p>© 2025 SOLVENT Interactive Systems. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
     </div>
-
-    <div class="footer-links">
-      <h4>// Support</h4>
-      <a href="#">Help Center</a>
-      <a href="#">Documentation</a>
-      <a href="#">Enterprise</a>
-    </div>
-
-    <div class="footer-links">
-      <h4>// Company</h4>
-      <a href="about.html">About</a>
-      <a href="#">Careers</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <div class="footer-news">
-      <h4>Stay in the loop</h4>
-      <p>Get product updates and invites to demos.</p>
-      <form id="newsletterForm">
-        <input type="email" placeholder="your@email.com" required />
-        <button type="submit">Join</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>© 2025 SOLVENT Interactive Systems. All rights reserved.</p>
-    <div class="footer-legal">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-    </div>
-  </div>
-</footer>
+  </footer>
 
 
   <script src="script.js"></script>
+
+  <!-- N8N Chatbot Widget -->
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/index.js';
+    createClient({
+      baseUrl: 'https://n8n.solventinteractive.com',
+      workflowId: 'YOUR_WORKFLOW_ID_HERE',
+      position: 'bottom-right',
+      theme: {
+        primaryColor: '#8b5cf6',
+      },
+    });
+  </script>
 </body>
+
 </html>

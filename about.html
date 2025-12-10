@@ -1,26 +1,31 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About — SOLVENT Interactive Systems</title>
 
   <!-- SEO Meta -->
-  <meta name="description" content="Learn about SOLVENT Interactive Systems — an AI consultancy specializing in automation, chatbots, and integration solutions for modern enterprises." />
-  <meta name="keywords" content="About SOLVENT Interactive Systems, AI automation company, chatbot development, business automation India, AI consultancy Delhi" />
+  <meta name="description"
+    content="Learn about SOLVENT Interactive Systems — an AI consultancy specializing in automation, chatbots, and integration solutions for modern enterprises." />
+  <meta name="keywords"
+    content="About SOLVENT Interactive Systems, AI automation company, chatbot development, business automation India, AI consultancy Delhi" />
   <meta name="author" content="SOLVENT Interactive Systems" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="About SOLVENT Interactive Systems — AI Consultancy" />
-  <meta property="og:description" content="Discover how SOLVENT Interactive Systems helps enterprises scale with AI automation, chatbots, and integrations." />
+  <meta property="og:description"
+    content="Discover how SOLVENT Interactive Systems helps enterprises scale with AI automation, chatbots, and integrations." />
   <meta property="og:image" content="https://your-domain.com/assets/og-image.jpg" />
   <meta property="og:url" content="https://solventinteractive.com/about.html" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="About SOLVENT Interactive Systems — AI Consultancy" />
-  <meta name="twitter:description" content="Empowering enterprises with AI automation, chatbot, and system integration solutions." />
+  <meta name="twitter:description"
+    content="Empowering enterprises with AI automation, chatbot, and system integration solutions." />
   <meta name="twitter:image" content="https://your-domain.com/assets/og-image.jpg" />
 
   <!-- Favicon -->
@@ -32,204 +37,364 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-/>
+  <link rel="stylesheet" href="about-styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 </head>
+
 <body>
   <div class="bg-gradient"><canvas id="particle-canvas"></canvas></div>
 
   <!-- Header -->
   <header class="site-header">
-  <div class="header-inner">
-    <div class="header-logo">
-      <a href="index.html">
-        <img src="assets/logo.png" alt="Solvent Interactive Systems" class="nav-logo" />
-      </a>
+    <div class="header-inner">
+      <div class="header-logo">
+        <a href="index.html">
+          <img src="assets/logo.png" alt="Solvent Interactive Systems" class="nav-logo" />
+        </a>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="contact.html" class="btn-ghost">Book Demo</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-
-    <nav class="nav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="services.html" class="nav-link">Services</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-      <a href="contact.html" class="btn-ghost">Book Demo</a>
-    </nav>
-
-    <button class="menu-toggle" id="menuToggle">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
+  </header>
 
 
   <!-- Main -->
   <main>
-    <!-- About Hero -->
-    <section class="container about-hero fade-in">
-      <h1>About <span class="accent">SOLVENT Interactive Systems</span></h1>
-      <p class="lead">We are an AI consultancy helping businesses revolutionize operations with automation, chatbots, and intelligent integrations.</p>
-
-      <div class="about-grid">
-        <div>
-          <img loading="lazy" src="assets/about-hero.jpg" alt="SOLVENT Team Working" class="rounded">
+    <!-- Hero Section with Animation -->
+    <section class="about-hero-new">
+      <div class="container">
+        <div class="hero-content animate-fade-in">
+          <h1>Transforming Businesses with <span class="gradient-text">AI Innovation</span></h1>
+          <p class="hero-subtitle">We are SOLVENT Interactive Systems — your partner in intelligent automation,
+            chatbots, and seamless integrations.</p>
         </div>
-        <div>
-          <h2>Our Story</h2>
-          <p>Founded with the vision of democratizing automation, SOLVENT Interactive Systems bridges the gap between business strategy and technology. We partner with enterprises to simplify complex workflows, improve scalability, and deploy impactful AI systems.</p>
 
-          <h2>Our Mission</h2>
-          <p>To empower organizations through intelligent automation and human-centric AI — making work smarter, faster, and more efficient.</p>
-
-          <h2>Our Vision</h2>
-          <p>To be the global leader in enterprise AI transformation, delivering measurable value and inspiring innovation through technology.</p>
+        <!-- Hero Image Placeholder -->
+        <div class="hero-image-wrapper animate-slide-up">
+          <div class="image-placeholder hero-placeholder">
+            <p><img src="assets/Bnner.PNG" alt="Hero Image"></p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Values -->
-    <section class="container fade-in">
-      <h2>Our Core Values</h2>
-      <div class="grid">
-        <div class="feature">
-          <h3>Innovation</h3>
-          <p>We challenge the status quo, bringing creativity and advanced AI to every project.</p>
-        </div>
-        <div class="feature">
-          <h3>Integrity</h3>
-          <p>We uphold transparency and trust, ensuring every solution aligns with your vision.</p>
-        </div>
-        <div class="feature">
-          <h3>Customer Success</h3>
-          <p>Your goals drive our mission — we measure success by the impact we deliver.</p>
+    <!-- Story Section with Side-by-Side Layout -->
+    <section class="story-section">
+      <div class="container">
+        <div class="story-grid">
+          <div class="story-image animate-slide-left">
+            <div class="image-placeholder story-placeholder">
+              <p> <img src="assets/Aitechnology.PNG" alt="AI Technology Image"></p>
+            </div>
+          </div>
+
+          <div class="story-content animate-slide-right">
+            <div class="section-badge">About Us</div>
+            <h2>Our Story</h2>
+            <p>Founded with the vision of democratizing automation, SOLVENT Interactive Systems bridges the gap between
+              business strategy and technology. We partner with enterprises to simplify complex workflows, improve
+              scalability, and deploy impactful AI systems.</p>
+
+            <div class="mission-vision">
+              <div class="mv-card">
+                <div class="mv-icon">🎯</div>
+                <h3>Our Mission</h3>
+                <p>To empower organizations through intelligent automation and human-centric AI — making work smarter,
+                  faster, and more efficient.</p>
+              </div>
+
+              <div class="mv-card">
+                <div class="mv-icon">🚀</div>
+                <h3>Our Vision</h3>
+                <p>To be the global leader in enterprise AI transformation, delivering measurable value and inspiring
+                  innovation through technology.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Team -->
-    
+    <!-- Core Values with Image Cards -->
+    <section class="values-section-new">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">Our Values</div>
+          <h2>Core Principles That Drive Us</h2>
+          <p class="section-subtitle">The foundation of everything we do</p>
+        </div>
 
-    <!-- Impact -->
-    <section class="container fade-in impact">
-      <h2>Our Impact in Numbers</h2>
-      <div class="stats">
-        <div class="stat">
-          <h3><span class="counter" data-target="120">0</span>+</h3>
-          <p>Enterprise Projects</p>
-        </div>
-        <div class="stat">
-          <h3><span class="counter" data-target="35">0</span>+</h3>
-          <p>Global Clients</p>
-        </div>
-        <div class="stat">
-          <h3><span class="counter" data-target="98">0</span>%</h3>
-          <p>Process Efficiency Boost</p>
+        <div class="values-grid-new">
+          <div class="value-card-new animate-fade-in" style="animation-delay: 0.1s">
+            <div class="value-image-new">
+              <div class="image-placeholder value-placeholder">
+                <p><img src="assets/innovation.png" alt="Innovation Image"></p>
+              </div>
+            </div>
+            <div class="value-content-new">
+              <h3>Innovation</h3>
+              <p>We challenge the status quo, bringing creativity and advanced AI to every project. Our team constantly
+                explores cutting-edge technologies to deliver transformative solutions.</p>
+            </div>
+          </div>
+
+          <div class="value-card-new animate-fade-in" style="animation-delay: 0.2s">
+            <div class="value-image-new">
+              <div class="image-placeholder value-placeholder">
+                <p><img src="assets/Integrity.PNG" alt="Integrity Image"></p>
+              </div>
+            </div>
+            <div class="value-content-new">
+              <h3>Integrity</h3>
+              <p>We uphold transparency and trust, ensuring every solution aligns with your vision. Honesty and ethical
+                practices form the foundation of all our client relationships.</p>
+            </div>
+          </div>
+
+          <div class="value-card-new animate-fade-in" style="animation-delay: 0.3s">
+            <div class="value-image-new">
+              <div class="image-placeholder value-placeholder">
+                <img src="assets/Success.png" alt="Success Image">
+              </div>
+            </div>
+            <div class="value-content-new">
+              <h3>Customer Success</h3>
+              <p>Your goals drive our mission. We measure success by the impact we deliver, ensuring your business
+                achieves measurable results through our AI solutions.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Office Info -->
-    <section class="container fade-in">
-      <h2>Our Headquarters</h2>
-      <p class="lead">We’re based in New Delhi, serving clients globally across industries — from healthcare to fintech.</p>
-
-      <div class="office-grid">
-        <div>
-          <img src="assets/office.jpg" alt="SOLVENT Office Delhi" class="rounded">
+    <!-- Expertise Showcase -->
+    <section class="expertise-section-new">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">What We Do</div>
+          <h2>Our Expertise</h2>
+          <p class="section-subtitle">Comprehensive AI solutions for modern enterprises</p>
         </div>
-        <div class="office-info">
-          <p><strong>Address:</strong>91C, DG2, Vikas Puri, New Delhi-110018</p>
-          <p><strong>Email:</strong> <a href="mailto:info@solventinteractive.com">info@solventinteractive.com</a></p>
-          <p><strong>WhatsApp:</strong> <a href="https://wa.me/919810961797" target="_blank">+91 98109 61797</a></p>
-          <p><strong>Working Hours:</strong> Mon - Sat, 10:00 AM - 6:00 PM</p>
+
+        <div class="expertise-grid-new">
+          <div class="expertise-card-new animate-scale" style="animation-delay: 0.1s">
+            <div class="expertise-image-new">
+              <div class="image-placeholder expertise-placeholder">
+                <img src="assets/AIautomation.png" alt="AI Automation"
+                  style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+            </div>
+            <div class="expertise-overlay-new">
+              <h3>AI Automation</h3>
+              <p>Streamlining processes with intelligent automation</p>
+              <div class="expertise-arrow">→</div>
+            </div>
+          </div>
+
+          <div class="expertise-card-new animate-scale" style="animation-delay: 0.2s">
+            <div class="expertise-image-new">
+              <div class="image-placeholder expertise-placeholder">
+                <img src="assets/chatbot.png" alt="Intelligent Chatbots"
+                  style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+            </div>
+            <div class="expertise-overlay-new">
+              <h3>Intelligent Chatbots</h3>
+              <p>24/7 customer engagement powered by AI</p>
+              <div class="expertise-arrow">→</div>
+            </div>
+          </div>
+
+          <div class="expertise-card-new animate-scale" style="animation-delay: 0.3s">
+            <div class="expertise-image-new">
+              <div class="image-placeholder expertise-placeholder">
+                <img src="assets/Seamless Integration.png" alt="Seamless Integrations"
+                  style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+            </div>
+            <div class="expertise-overlay-new">
+              <h3>Seamless Integrations</h3>
+              <p>Connecting your tools into one ecosystem</p>
+              <div class="expertise-arrow">→</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global Reach -->
+    <section class="global-section-new">
+      <div class="container">
+        <div class="global-content-new animate-fade-in">
+          <div class="section-badge">Worldwide</div>
+          <h2>Global Reach, Local Expertise</h2>
+          <p>Based in New Delhi, we serve clients worldwide across industries — from healthcare to fintech, retail to
+            manufacturing.</p>
+
+          <div class="global-image-new">
+            <div class="image-placeholder global-placeholder">
+              <img src="assets/Global Link.png" alt="Global Reach"
+                style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Office/Contact Section -->
+    <section class="office-section-new">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">Visit Us</div>
+          <h2>Our Headquarters</h2>
+        </div>
+
+        <div class="office-grid-new">
+          <div class="office-image-new animate-slide-left">
+            <div class="image-placeholder office-placeholder">
+              <img src="assets/Office.png" alt="Our Headquarters" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+          </div>
+
+          <div class="office-info-new animate-slide-right">
+            <h3>Get in Touch</h3>
+
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div class="contact-details">
+                <strong>Address</strong>
+                <p>91C, DG2, Vikas Puri, New Delhi-110018</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">📧</div>
+              <div class="contact-details">
+                <strong>Email</strong>
+                <p><a href="mailto:info@solventinteractive.com">info@solventinteractive.com</a></p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div class="contact-details">
+                <strong>WhatsApp</strong>
+                <p><a href="https://wa.me/919810961797" target="_blank">+91 98109 61797</a></p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">🕐</div>
+              <div class="contact-details">
+                <strong>Working Hours</strong>
+                <p>Mon - Sat, 10:00 AM - 6:00 PM IST</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <!-- Brand Column -->
-    <div class="footer-brand">
-      <img src="assets/logo.png" alt="Solvent Interactive Systems" class="footer-logo" />
-      <p class="footer-desc">
-        SOLVENT Interactive Systems — experts in AI Automation, Integrations, and Chatbots.
-        We help enterprises streamline operations and enhance customer engagement through intelligent automation.
-      </p>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <!-- Brand Column -->
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Solvent Interactive Systems" class="footer-logo" />
+        <p class="footer-desc">
+          SOLVENT Interactive Systems — experts in AI Automation, Integrations, and Chatbots.
+          We help enterprises streamline operations and enhance customer engagement through intelligent automation.
+        </p>
 
-      <ul class="footer-contact">
-        <li> <p><strong>📍</strong> 91C, DG2, Vikas Puri, New Delhi-110018</p>
-</li>
-        <li>📧 <a href="mailto:info@solventinteractive.com">info@solventinteractive.com</a></li>
-        <li>📞 <a href="https://wa.me/919810961797" target="_blank">+91 98109 61797</a></li>
-      </ul>
+        <!-- Social Media Links -->
+        <div class="footer-social">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/solvent-interactive-systems" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
 
-      <!-- Social Media Links -->
-      <div class="footer-social">
-        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-          <i class="fab fa-x-twitter"></i>
-        </a>
-        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.linkedin.com/company/solvent-interactive-systems" target="_blank" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://youtube.com" target="_blank" aria-label="YouTube">
-          <i class="fab fa-youtube"></i>
-        </a>
+      <!-- Footer Links -->
+      <div class="footer-links">
+        <h4>// Product</h4>
+        <a href="#">What's New</a>
+        <a href="#">Features</a>
+        <a href="#">Roadmap</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>// Support</h4>
+        <a href="#">Help Center</a>
+        <a href="#">Documentation</a>
+        <a href="#">Enterprise</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>// Company</h4>
+        <a href="about.html">About</a>
+        <a href="#">Careers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="footer-news">
+        <h4>Stay in the loop</h4>
+        <p>Get product updates and invites to demos.</p>
+        <form id="newsletterForm">
+          <input type="email" placeholder="your@email.com" required />
+          <button type="submit">Join</button>
+        </form>
       </div>
     </div>
 
-    <!-- Product / Support / Company / Newsletter sections remain same -->
-    <div class="footer-links">
-      <h4>// Product</h4>
-      <a href="#">What's New</a>
-      <a href="#">Features</a>
-      <a href="#">Roadmap</a>
+    <div class="footer-bottom">
+      <p>© 2025 SOLVENT Interactive Systems. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
     </div>
-
-    <div class="footer-links">
-      <h4>// Support</h4>
-      <a href="#">Help Center</a>
-      <a href="#">Documentation</a>
-      <a href="#">Enterprise</a>
-    </div>
-
-    <div class="footer-links">
-      <h4>// Company</h4>
-      <a href="about.html">About</a>
-      <a href="#">Careers</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <div class="footer-news">
-      <h4>Stay in the loop</h4>
-      <p>Get product updates and invites to demos.</p>
-      <form id="newsletterForm">
-        <input type="email" placeholder="your@email.com" required />
-        <button type="submit">Join</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>© 2025 SOLVENT Interactive Systems. All rights reserved.</p>
-    <div class="footer-legal">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-    </div>
-  </div>
-</footer>
+  </footer>
 
 
 
   <script src="script.js"></script>
+
+  <!-- N8N Chatbot Widget -->
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/index.js';
+    createClient({
+      baseUrl: 'https://n8n.solventinteractive.com',
+      workflowId: 'YOUR_WORKFLOW_ID_HERE',
+      position: 'bottom-right',
+      theme: {
+        primaryColor: '#8b5cf6',
+      },
+    });
+  </script>
 </body>
+
 </html>

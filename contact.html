@@ -1,19 +1,23 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us | SOLVENT Interactive Systems</title>
+  <title>Contact & Book Demo — SOLVENT Interactive Systems</title>
 
   <!-- SEO -->
-  <meta name="description" content="Contact SOLVENT Interactive Systems to discuss AI automation, chatbot, and system integration services for your enterprise." />
-  <meta name="keywords" content="contact SOLVENT Interactive Systems, AI automation consultancy India, chatbot development, workflow automation, New Delhi" />
+  <meta name="description"
+    content="Contact SOLVENT Interactive Systems to discuss AI automation, chatbot, and system integration services for your enterprise." />
+  <meta name="keywords"
+    content="contact SOLVENT Interactive Systems, AI automation consultancy India, chatbot development, workflow automation, New Delhi" />
   <meta name="author" content="SOLVENT Interactive Systems" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Contact SOLVENT Interactive Systems" />
-  <meta property="og:description" content="Get in touch with our AI experts to explore automation, chatbot, and integration solutions." />
+  <meta property="og:description"
+    content="Get in touch with our AI experts to explore automation, chatbot, and integration solutions." />
   <meta property="og:image" content="https://your-domain.com/assets/og-image.jpg" />
   <meta property="og:url" content="https://solventinteractive.com/contact.html" />
 
@@ -29,193 +33,272 @@
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-/>
+  <link rel="stylesheet" href="contact-styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 </head>
+
 <body>
   <div class="bg-gradient"><canvas id="particle-canvas"></canvas></div>
 
   <!-- Header -->
-   <header class="site-header">
-  <div class="header-inner">
-    <div class="header-logo">
-      <a href="index.html">
-        <img src="assets/logo.png" alt="Solvent Interactive Systems" class="nav-logo" />
-      </a>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-logo">
+        <a href="index.html">
+          <img src="assets/logo.png" alt="Solvent Interactive Systems" class="nav-logo" />
+        </a>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="#book-demo" class="btn-ghost">Book Demo</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-
-    <nav class="nav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="services.html" class="nav-link">Services</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-      <a href="contact.html" class="btn-ghost">Book Demo</a>
-    </nav>
-
-    <button class="menu-toggle" id="menuToggle">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
+  </header>
 
 
   <!-- Main -->
   <main>
-    <!-- Hero -->
-    <section class="container fade-in">
-      <h1>Get in <span class="accent">Touch</span></h1>
-      <p class="lead">We’d love to hear about your automation goals. Contact our AI experts to explore the best solutions for your business.</p>
+    <!-- Hero Section -->
+    <section class="contact-hero-new fade-in">
+      <div class="container">
+        <h1>Let's Build the <span class="gradient-text">Future</span> Together</h1>
+        <p class="hero-subtitle">Whether you have a question about features, pricing, need a demo, or anything else, our
+          team is ready to answer all your questions.</p>
+      </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section class="contact-section container fade-in">
-      <div class="contact-grid">
-        <!-- Contact Form -->
-        <div class="contact-form-wrapper">
-          <form id="contactForm" class="contact-form">
-            <h2>Send us a message</h2>
-            <p class="muted">We’ll get back to you within one business day.</p>
+    <!-- Contact Form & Info Section -->
+    <section class="contact-section-new">
+      <div class="container">
+        <div class="contact-wrapper-new">
 
-            <input type="text" id="name" name="name" placeholder="Your Name" required />
-            <input type="email" id="email" name="email" placeholder="Your Email" required />
-            <input type="text" id="company" name="company" placeholder="Company / Organization (optional)" />
-            <select name="topic" id="topic">
-              <option value="">Select your interest</option>
-              <option value="automation">AI Automation</option>
-              <option value="chatbot">Chatbot Solutions</option>
-              <option value="integration">System Integration</option>
-              <option value="consulting">AI Consulting</option>
-            </select>
-            <textarea name="message" id="message" rows="5" placeholder="Your Message" required></textarea>
+          <!-- Contact Info Side -->
+          <div class="contact-info-new animate-slide-right">
+            <div class="info-card">
+              <div class="info-header">
+                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <h3>Visit Our HQ</h3>
+              </div>
+              <p>Come say hello at our office headquarters.</p>
+              <br>
+              <p><strong>91C, DG2, Vikas Puri</strong><br>New Delhi-110018, India</p>
+            </div>
 
-            <button type="submit" class="btn btn-primary">Submit Message</button>
-            <p id="formStatus" class="muted-sm"></p>
-          </form>
+            <div class="info-card">
+              <div class="info-header">
+                <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                <h3>Chat to us</h3>
+              </div>
+              <p>Our friendly team is here to help.</p>
+              <br>
+              <p><a href="mailto:info@solventinteractive.com">info@solventinteractive.com</a></p>
+              <p><a href="https://wa.me/919810961797" target="_blank">WhatsApp: +91 98109 61797</a></p>
+            </div>
+
+            <div class="info-card">
+              <div class="info-header">
+                <div class="info-icon"><i class="fas fa-clock"></i></div>
+                <h3>Working Hours</h3>
+              </div>
+              <p>Mon - Sat: 10:00 AM - 6:00 PM IST</p>
+              <p>Sunday: Closed</p>
+            </div>
+          </div>
+
+          <!-- Contact Form Side -->
+          <div class="contact-form-container animate-slide-left">
+            <div class="form-header">
+              <h2>Send us a message</h2>
+              <p>We usually respond within 24 hours.</p>
+            </div>
+
+            <form id="contactForm" action="https://sheetdb.io/api/v1/ngd0ifj19bdfb" method="post">
+              <div class="form-row">
+                <div class="form-group-new">
+                  <label for="name">Full Name</label>
+                  <input type="text" id="name" name="name" class="form-input-new" placeholder="John Doe" required>
+                </div>
+                <div class="form-group-new">
+                  <label for="email">Email Address</label>
+                  <input type="text" id="email" name="email" class="form-input-new" placeholder="john@company.com"
+                    required>
+
+                </div>
+              </div>
+
+              <div class="form-group-new">
+                <label for="topic">What can we help you with?</label>
+                <select id="topic" name="topic" class="form-input-new">
+                  <option value="General Inquiry">General Inquiry</option>
+                  <option value="AI Automation">AI Automation</option>
+                  <option value="Chatbot Development">Chatbot Development</option>
+                  <option value="System Integration">System Integration</option>
+                  <option value="Consulting">Consulting</option>
+                </select>
+              </div>
+
+              <div class="form-group-new">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" class="form-input-new" placeholder="Tell us about your project..."
+                  required></textarea>
+              </div>
+
+              <input type="submit" class="btn-submit" value="Send Message">
+              <p id="formStatus" class="muted-sm" style="margin-top: 10px; text-align: center;"></p>
+            </form>
+          </div>
+
         </div>
+      </div>
+    </section>
 
-        <!-- Contact Details -->
-        <div class="contact-info">
-          <h2>Contact Information</h2>
-          <p><strong>Address:</strong><br>91C, DG2, Vikas Puri<br>New Delhi-110018, India</p>
-          <p><strong>Email:</strong><br><a href="mailto:info@solventinteractive.com">info@solventinteractive.com</a></p>
-          <p><strong>WhatsApp:</strong><br><a href="https://wa.me/919810961797" target="_blank">+91 98109 61797</a></p>
-          <p><strong>Working Hours:</strong><br>Monday to Saturday — 10:00 AM to 6:00 PM</p>
+    <!-- Book Demo Section -->
+    <section id="book-demo" class="book-demo-section">
+      <div class="container">
+        <div class="demo-wrapper">
+          <div class="demo-content animate-fade-in">
+            <div class="section-badge">Book a Demo</div>
+            <h2>See SOLVENT in Action</h2>
+            <p>Schedule a personalized demo with our product experts. We'll show you how our AI solutions can transform
+              your specific business workflows.</p>
 
-          <div class="contact-buttons">
-            <a href="https://wa.me/919810961797" class="btn btn-primary" target="_blank">Chat on WhatsApp</a>
-            <a href="mailto:info@solventinteractive.com" class="btn btn-outline">Send Email</a>
+            <ul class="demo-features">
+              <li><i class="fas fa-check-circle"></i> Live walkthrough of our AI capabilities</li>
+              <li><i class="fas fa-check-circle"></i> Tailored solution architecture for your needs</li>
+              <li><i class="fas fa-check-circle"></i> ROI estimation and implementation roadmap</li>
+              <li><i class="fas fa-check-circle"></i> Q&A with technical specialists</li>
+            </ul>
+          </div>
+
+          <div class="demo-card animate-scale">
+            <h3>Schedule Your Session</h3>
+            <p>Select a time that works best for you.</p>
+            <!-- Placeholder for Calendar Embed or simple CTA -->
+            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+              <i class="far fa-calendar-alt" style="font-size: 3rem; color: var(--accent-1); margin-bottom: 10px;"></i>
+              <p style="margin-bottom: 0;">Calendar integration loading...</p>
+            </div>
+            <a href="https://wa.me/919810961797?text=I%20would%20like%20to%20book%20a%20demo" target="_blank"
+              class="btn-submit" style="display: inline-block; text-decoration: none; color: #000;">
+              Book via WhatsApp <i class="fab fa-whatsapp"></i>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Map Section -->
-    <section class="container fade-in">
-      <h2>Find Us on the Map</h2>
-      <div class="map-container">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.0000000000005!2d77.08800000000001!3d28.633000000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03af00000001%3A0xabcdef1234567890!2s91C%2C%20DG2%2C%20Vikas%20Puri%2C%20New Delhi-110018!5e0!3m2!1sen!2sin!4v0000000000000"
-          width="100%" height="380" style="border:0; border-radius:16px;" allowfullscreen="" loading="lazy">
-        </iframe>
+    <section class="map-section-new">
+      <div class="container">
+        <div class="map-container-new animate-slide-up">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.0000000000005!2d77.08800000000001!3d28.633000000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03af00000001%3A0xabcdef1234567890!2s91C%2C%20DG2%2C%20Vikas%20Puri%2C%20New Delhi-110018!5e0!3m2!1sen!2sin!4v0000000000000"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+          </iframe>
+        </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta container fade-in">
-      <h3>Need a custom AI solution?</h3>
-      <p>Book a discovery call with our team today and explore the future of automation for your business.</p>
-      <div class="cta-actions">
-        <a href="https://wa.me/919810961797" target="_blank" class="btn btn-primary">Chat Now</a>
-        <a href="about.html" class="btn btn-outline">Learn More About Us</a>
-      </div>
-    </section>
   </main>
 
   <!-- Footer -->
   <footer class="site-footer">
-  <div class="container footer-inner">
-    <!-- Brand Column -->
-    <div class="footer-brand">
-      <img src="assets/logo.png" alt="Solvent Interactive Systems" class="footer-logo" />
-      <p class="footer-desc">
-        SOLVENT Interactive Systems — experts in AI Automation, Integrations, and Chatbots.
-        We help enterprises streamline operations and enhance customer engagement through intelligent automation.
-      </p>
+    <div class="container footer-inner">
+      <!-- Brand Column -->
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Solvent Interactive Systems" class="footer-logo" />
+        <p class="footer-desc">
+          SOLVENT Interactive Systems — experts in AI Automation, Integrations, and Chatbots.
+          We help enterprises streamline operations and enhance customer engagement through intelligent automation.
+        </p>
 
-      <ul class="footer-contact">
-        <li>📍 91C, DG2, Vikas Puri, New Delhi-110018</li>
-        <li>📧 <a href="mailto:info@solventinteractive.com">info@solventinteractive.com</a></li>
-        <li>📞 <a href="https://wa.me/919810961797" target="_blank">+91 98109 61797</a></li>
-      </ul>
+        <!-- Social Media Links -->
+        <div class="footer-social">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/solvent-interactive-systems" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
 
-      <!-- Social Media Links -->
-      <div class="footer-social">
-        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-          <i class="fab fa-x-twitter"></i>
-        </a>
-        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.linkedin.com/company/solvent-interactive-systems" target="_blank" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://youtube.com" target="_blank" aria-label="YouTube">
-          <i class="fab fa-youtube"></i>
-        </a>
+      <!-- Footer Links -->
+      <div class="footer-links">
+        <h4>// Product</h4>
+        <a href="#">What's New</a>
+        <a href="#">Features</a>
+        <a href="#">Roadmap</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>// Support</h4>
+        <a href="#">Help Center</a>
+        <a href="#">Documentation</a>
+        <a href="#">Enterprise</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>// Company</h4>
+        <a href="about.html">About</a>
+        <a href="#">Careers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="footer-news">
+        <h4>Stay in the loop</h4>
+        <p>Get product updates and invites to demos.</p>
+        <form id="newsletterForm" action="https://sheetdb.io/api/v1/hrhlnci3ftn02" method="post">
+          <input type="text" name="FooterEmail" placeholder="your@email.com" required />
+          <input type="submit" value="Join">
+        </form>
       </div>
     </div>
 
-    <!-- Product / Support / Company / Newsletter sections remain same -->
-    <div class="footer-links">
-      <h4>// Product</h4>
-      <a href="#">What's New</a>
-      <a href="#">Features</a>
-      <a href="#">Roadmap</a>
+    <div class="footer-bottom">
+      <p>© 2025 SOLVENT Interactive Systems. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
     </div>
-
-    <div class="footer-links">
-      <h4>// Support</h4>
-      <a href="#">Help Center</a>
-      <a href="#">Documentation</a>
-      <a href="#">Enterprise</a>
-    </div>
-
-    <div class="footer-links">
-      <h4>// Company</h4>
-      <a href="about.html">About</a>
-      <a href="#">Careers</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-      <div class="footer-news">
-      <h4>Stay in the loop</h4>
-      <p>Get product updates and invites to demos.</p>
-      <form id="newsletterForm" class="footer-form">
-        <input type="email" name="email" placeholder="your@email.com" required />
-        <button type="submit">Join</button>
-        <p id="newsletter-status" class="muted-sm"></p>
-      </form>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>© 2025 SOLVENT Interactive Systems. All rights reserved.</p>
-    <div class="footer-legal">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-    </div>
-  </div>
-</footer>
-
-
+  </footer>
 
   <script src="script.js"></script>
+
+  <!-- N8N Chatbot Widget -->
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/index.js';
+    createClient({
+      baseUrl: 'https://n8n.solventinteractive.com',
+      workflowId: 'YOUR_WORKFLOW_ID_HERE',
+      position: 'bottom-right',
+      theme: {
+        primaryColor: '#8b5cf6',
+      },
+    });
+  </script>
 </body>
+
 </html>
