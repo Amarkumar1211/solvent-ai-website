@@ -387,11 +387,19 @@
   <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/index.js';
     createClient({
-      baseUrl: 'https://n8n.solventinteractive.com',
-      workflowId: 'YOUR_WORKFLOW_ID_HERE',
+      baseUrl: 'https://n8n.cloud.example.com',
+      workflowId: 'YOUR_WORKFLOW_ID',
       position: 'bottom-right',
       theme: {
         primaryColor: '#8b5cf6',
+        secondary: '#a78bfa',
+      },
+      i18n: {
+        en: {
+          title: 'SOLVENT AI Assistant',
+          subtitle: 'How can we help you today?',
+          inputPlaceholder: 'Ask me anything...',
+        },
       },
     });
   </script>
